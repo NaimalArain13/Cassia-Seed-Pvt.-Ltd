@@ -136,3 +136,23 @@ npm run lint
 9. **Google Maps embed** — use the `<iframe>` embed URL from Google Maps (`maps.google.com/maps?q=...&output=embed`), not the JS Maps API. No API key needed for basic embeds.
 
 10. **Environment variables** — `NEXT_PUBLIC_*` vars are exposed to the browser. Never put `SANITY_API_TOKEN` (write token) as `NEXT_PUBLIC_`; use it only in Server Components or API routes.
+
+11. **Fonts loaded via `next/font/google`** — Inter uses variable `--font-inter`, Noto Nastaliq Urdu uses `--font-nastaliq`. Both are applied as CSS classes on `<html>`. Never import Google Fonts via CSS `@import url()` — it breaks the webpack CSS loader in Next.js.
+
+---
+
+## Session Workflow
+
+### "Done For Today" convention
+When the user says **"Done For Today"**, create a session summary file immediately:
+
+- **Location**: `sessions/session-YYYY-MM-DD.md`
+- **Content must include**:
+  1. **What was built/changed** — list every file created or modified with a one-line description
+  2. **Decisions made** — any architectural or design decisions taken this session
+  3. **Bugs fixed** — any errors encountered and how they were resolved
+  4. **Current state** — does the build pass? Is the dev server working?
+  5. **Follow-up for next session** — exact tasks left, in priority order, with enough context to resume cold
+
+- The `sessions/` directory is in `.gitignore` — these files are local only, not committed.
+- File naming: always use the actual date (`YYYY-MM-DD`). If multiple sessions happen on the same day, append `-2`, `-3`, etc.

@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "brand": "Brand",
+    "about": "About Us",
+    "contact": "Contact",
+    "allProducts": "All Products",
+    "tomatoes": "Tomatoes",
+    "peppers": "Peppers & Chillies",
+    "gourds": "Gourds",
+    "leafyGreens": "Leafy Greens",
+    "rootVeg": "Root Vegetables",
+    "viewAll": "View all →",
+    "ourBrands": "Our Brands",
+    "comingSoon": "SOON",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchBrand": "Switch brand",
+    "switchTo": "Switch to"
+  },
+  "lang": {
+    "en": "EN",
+    "ur": "UR",
+    "mix": "Mix"
+  },
+  "hero": {
+    "cassiaEyebrow": "F1 Hybrid Seeds · Nationwide Supply · Pakistan",
+    "cassiaH1": "Pakistan's most trusted seed partner",
+    "cassiaUrH1": "پاکستان کا بھروسہ، کیسیا سیڈ",
+    "cassiaSub": "Empowering farmers with high-yield F1 hybrid varieties. Grown in Pakistan, trusted nationwide.",
+    "cassiaUrSub": "اعلیٰ پیداوار والی ایف ون ہائبرڈ اقسام کے ساتھ کسانوں کو بااختیار بنانا۔",
+    "cassiaCta1": "Explore Products",
+    "malapineEyebrow": "Export Quality Seeds · F1 Hybrid · Worldwide",
+    "malapineH1": "Export quality, grown to perfection",
+    "malapineUrH1": "اعلیٰ ایکسپورٹ معیار، عمدہ کاشت",
+    "malapineSub": "Hand-selected F1 hybrid varieties packaged for export. Premium yield, premium pricing.",
+    "malapineUrSub": "ہاتھ سے منتخب ایف ون ہائبرڈ اقسام، ایکسپورٹ کے لیے تیار۔",
+    "malapineCta1": "Order Now",
+    "cta2": "Chat on WhatsApp"
+  },
+  "stats": {
+    "varieties": "Varieties",
+    "farmers": "Farmers",
+    "supply": "Supply",
+    "quality": "Quality",
+    "exportGrade": "Export Grade",
+    "countries": "Countries",
+    "standards": "Standards"
+  },
+  "about": {
+    "eyebrow": "Who we are",
+    "cassiaH2": "Empowering farmers since day one",
+    "cassiaBody": "Cassia Seed Pvt. Ltd brings Pakistan's farmers the highest-quality F1 hybrid seed varieties. Based in Multan, we supply nationwide with farmer support at every step.",
+    "cassiaUrBody": "اعلیٰ پیداوار والی ہائبرڈ بیج اقسام، پاکستان بھر میں دستیاب۔",
+    "malapineH2": "Premium seeds, built for export",
+    "malapineBody": "MalaPine Seeds produces hand-selected, export-grade F1 hybrid varieties. Each lot is QC'd for purity, germination, and visual uniformity before packaging.",
+    "malapineUrBody": "ایکسپورٹ معیار کے ایف ون ہائبرڈ بیج، عالمی منڈی کے لیے۔",
+    "visionLabel": "Vision",
+    "visionBody": "To be Pakistan's preferred partner in agricultural seed innovation.",
+    "missionLabel": "Mission",
+    "missionBody": "Empower farmers and communities through high-quality seed solutions.",
+    "cta": "Learn more about us →"
+  },
+  "features": {
+    "eyebrow": "Why choose us",
+    "cassiaH2": "Built for Pakistan's farmers",
+    "malapineH2": "Built for the world's markets",
+    "sub": "Four reasons growers and buyers come back to us, season after season."
+  },
+  "categories": {
+    "eyebrow": "Browse",
+    "h2": "Our product categories",
+    "viewAll": "View all categories →",
+    "varieties": "varieties"
+  },
+  "products": {
+    "eyebrow": "Bestsellers",
+    "cassiaH2": "Most-ordered Cassia seeds",
+    "malapineH2": "Featured MalaPine varieties",
+    "f1Badge": "F1 HYBRID",
+    "cassiaBadge": "Cassia",
+    "malapineBadge": "MalaPine",
+    "viewDetails": "View Details →"
+  },
+  "youtube": {
+    "eyebrow": "In the field",
+    "h2": "See our seeds in action",
+    "sub": "Watch farmer testimonials and product demonstrations from across Pakistan."
+  },
+  "whatsapp": {
+    "bannerH2": "Order seeds directly on WhatsApp",
+    "bannerSub": "Talk to our agronomist, place your order, get delivery anywhere in Pakistan.",
+    "bannerCta": "💬 Chat on WhatsApp",
+    "floatLabel": "Chat on WhatsApp"
+  },
+  "footer": {
+    "cassiaTagline": "F1 hybrid vegetable seeds. Multan, Pakistan. Nationwide supply, farmer support included.",
+    "malapineTagline": "Export-quality F1 hybrid seeds. Shipping worldwide from Multan, Pakistan.",
+    "quickLinks": "Quick Links",
+    "brands": "Brands",
+    "contact": "Contact",
+    "copyright": "© 2026 Cassia Seed Pvt. Ltd. All rights reserved.",
+    "tagline": "Built in Multan · Trusted nationwide"
+  },
+  "contact": {
+    "pageTitle": "Contact Us",
+    "pageSubtitle": "We're based in Multan — reach us on WhatsApp, email, or visit us directly.",
+    "whatsappLabel": "Chat on WhatsApp",
+    "emailLabel": "Send an Email",
+    "phone": "Phone",
+    "address": "Address",
+    "addressValue": "Multan, Punjab, Pakistan",
+    "mapTitle": "Our Location"
+  },
+  "about_page": {
+    "pageTitle": "About Cassia Seed",
+    "vision": "Vision",
+    "visionBody": "To be the preferred partners in agriculture, driving growth through innovation, sustainability, and excellence, while creating enduring value for farmers, communities, and stakeholders.",
+    "mission": "Mission",
+    "missionBody": "Empowering farmers and communities through high-quality seed solutions and sustainable agricultural growth.",
+    "story": "Our Story",
+    "storyBody": "Founded in Multan — Pakistan's agricultural heartland — Cassia Seed Pvt. Ltd was built on a simple promise: bring the best F1 hybrid seed varieties to every farmer in Pakistan, backed by agronomist support at every step."
+  },
+  "plantiva": {
+    "label": "A new chapter",
+    "backToCassia": "← Back to Cassia",
+    "badge": "Coming Soon",
+    "h1Part1": "Planting",
+    "h1Part2": "Future.",
+    "urH1": "پلانٹیوا — مستقبل کی بوائی",
+    "body": "A new venture from the team behind Cassia Seed Pvt. Ltd — focused on the next generation of crop science. We're building something that grows beyond seeds. Sign up to be first when we launch.",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "emailPlaceholder": "your@email.com",
+    "notifyCta": "Notify me",
+    "notifyNote": "We'll only email you once — at launch.",
+    "footerCopy": "© 2026 Plantiva · A Cassia Seed Pvt. Ltd venture"
+  }
+}

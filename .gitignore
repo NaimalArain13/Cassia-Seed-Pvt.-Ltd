@@ -1,0 +1,15 @@
+node_modules
+.next
+sessions/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+
+# Project planning & design docs
+PLAN.md
+prompt.md
