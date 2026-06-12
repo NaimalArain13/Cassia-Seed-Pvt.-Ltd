@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { useBrand, type Brand } from '@/lib/brand-context';
 
-const WA_NUMBER = '923001234567';
+const WA_NUMBER = '923255557303';
 const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/cassiaseedpvtltd',
   instagram: 'https://www.instagram.com/cassiaseedpvtltd',
@@ -17,14 +17,13 @@ export default function Footer() {
   const { brand, setBrand } = useBrand();
 
   const logoSrc: Record<Brand, string> = {
-    cassia: '/assets/cassia-logo.jpg',
-    malapine: '/assets/malapine-logo.jpg',
+    cassia: '/assets/cassia-transparent-bg.png',
+    malapine: '/assets/malapine-transparent-bg.png',
     plantiva: '/assets/plantiva-logo.jpg',
   };
 
   const quickLinks = [
     { href: '/', label: tn('home') },
-    { href: '/products', label: tn('products') },
     { href: '/about', label: tn('about') },
     { href: '/contact', label: tn('contact') },
   ];
@@ -36,25 +35,13 @@ export default function Footer() {
           {/* Brand column */}
           <div className="footer-brand">
             <div className="footer-brand-row">
-              <span
-                className="nav-logo-mark"
-                style={{
-                  width: 40,
-                  height: 40,
-                  ...(brand === 'malapine' ? { background: '#F0E6CC', padding: 2 } : {}),
-                }}
-              >
-                <Image
-                  src={logoSrc[brand]}
-                  alt={brand}
-                  width={40}
-                  height={40}
-                  style={{ objectFit: 'contain' }}
-                />
-              </span>
-              <span className="footer-brand-name">
-                {brand === 'malapine' ? 'MALAPINE SEEDS' : 'Cassia Seed'}
-              </span>
+              <Image
+                src={logoSrc[brand]}
+                alt={brand}
+                width={140}
+                height={52}
+                style={{ objectFit: 'contain' }}
+              />
             </div>
             <p className="footer-tag">
               {brand === 'malapine' ? t('malapineTagline') : t('cassiaTagline')}
@@ -91,7 +78,7 @@ export default function Footer() {
                 💬
               </a>
               <a
-                href="mailto:hello@cassiaseed.pk"
+                href="mailto:Info@cassiaseed.com"
                 className="footer-soc"
                 title="Email"
                 aria-label="Email"
@@ -134,14 +121,15 @@ export default function Footer() {
           <div>
             <h4>{t('contact')}</h4>
             <ul>
-              <li>Multan, Pakistan</li>
+              <li>Hyderabad, Sindh, Pakistan</li>
               <li>
-                <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer">
-                  +92 300 1234567
-                </a>
+                <a href="tel:+92223400398">022-3400398</a>
               </li>
               <li>
-                <a href="mailto:hello@cassiaseed.pk">hello@cassiaseed.pk</a>
+                <a href="tel:+923255557303">0325-5557303</a>
+              </li>
+              <li>
+                <a href="mailto:Info@cassiaseed.com">Info@cassiaseed.com</a>
               </li>
             </ul>
           </div>

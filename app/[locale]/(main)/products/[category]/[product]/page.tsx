@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
+import { getComingSoonImage } from '@/lib/product-images';
 
 const ALL_PRODUCTS = [
   {
@@ -87,7 +88,7 @@ const ALL_PRODUCTS = [
   },
 ];
 
-const WA_NUMBER = '923001234567';
+const WA_NUMBER = '923255557303';
 
 interface Props {
   params: Promise<{ category: string; product: string }>;
@@ -138,7 +139,7 @@ export default async function ProductDetailPage({ params }: Props) {
               style={{ padding: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 320 }}
             >
               <Image
-                src={p.img}
+                src={getComingSoonImage(p.brand, p.wt)}
                 alt={p.name}
                 width={400}
                 height={400}

@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 
-const WA_NUMBER = '923001234567';
+const WA_NUMBER = '923255557303';
 
 export default function WhatsAppCTABanner() {
   const t = useTranslations('whatsapp');

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Link } from '@/i18n/navigation';
+import { getComingSoonImage } from '@/lib/product-images';
 
 export interface ProductData {
   slug: string;
@@ -26,7 +26,7 @@ export default function ProductCard({ product, locale }: Props) {
     <div className="product-card">
       <div className="product-img">
         <Image
-          src={product.img}
+          src={getComingSoonImage(product.brand, product.wt)}
           alt={product.name}
           width={400}
           height={300}
@@ -52,12 +52,6 @@ export default function ProductCard({ product, locale }: Props) {
         )}
         <div className="product-foot" style={{ marginTop: 14 }}>
           {product.wt && <span className="product-wt">{product.wt}</span>}
-          <Link
-            href={`/products/${product.category}/${product.slug}`}
-            className="product-view"
-          >
-            View Details →
-          </Link>
         </div>
       </div>
     </div>

@@ -95,32 +95,60 @@
     "floatLabel": "واٹس ایپ پر بات کریں"
   },
   "footer": {
-    "cassiaTagline": "ایف ون ہائبرڈ سبزیوں کے بیج۔ ملتان، پاکستان۔ پاکستان بھر ترسیل۔",
-    "malapineTagline": "ایکسپورٹ معیاری ایف ون ہائبرڈ بیج۔ ملتان، پاکستان سے دنیا بھر ترسیل۔",
+    "cassiaTagline": "ایف ون ہائبرڈ سبزیوں کے بیج۔ حیدرآباد، سندھ، پاکستان۔ پاکستان بھر ترسیل۔",
+    "malapineTagline": "ایکسپورٹ معیاری ایف ون ہائبرڈ بیج۔ پاکستان سے دنیا بھر ترسیل۔",
     "quickLinks": "فوری لنکس",
     "brands": "برانڈز",
     "contact": "رابطہ",
     "copyright": "© ۲۰۲۶ کیسیا سیڈ پرائیویٹ لمیٹڈ۔ تمام حقوق محفوظ۔",
-    "tagline": "ملتان میں بنایا · پاکستان بھر میں بھروسہ"
+    "tagline": "حیدرآباد میں بنایا · پاکستان بھر میں بھروسہ"
   },
   "contact": {
     "pageTitle": "ہم سے رابطہ کریں",
-    "pageSubtitle": "ہم ملتان میں ہیں — واٹس ایپ، ای میل یا براہ راست ملیں۔",
+    "pageSubtitle": "ہم حیدرآباد، سندھ میں ہیں — واٹس ایپ، ای میل یا فون پر رابطہ کریں۔",
     "whatsappLabel": "واٹس ایپ پر بات کریں",
     "emailLabel": "ای میل بھیجیں",
-    "phone": "فون",
+    "phone": "لینڈ لائن",
+    "mobile": "موبائل",
     "address": "پتہ",
-    "addressValue": "ملتان، پنجاب، پاکستان",
+    "addressValue": "آفس نمبر ایف-201 اور 202، دوسری منزل، آفس بلاک مین روڈ، گلشن زیل پاک کوآپریٹو ہاؤسنگ سوسائٹی، سائٹ ایریا، حیدرآباد، سندھ، پاکستان",
     "mapTitle": "ہماری جگہ"
   },
   "about_page": {
-    "pageTitle": "کیسیا سیڈ کے بارے میں",
-    "vision": "وژن",
-    "visionBody": "زراعت میں ترجیحی شراکت دار بننا، جدت، پائیداری اور عمدگی کے ذریعے ترقی کو آگے بڑھانا۔",
-    "mission": "مشن",
+    "pageTitle": "ہمارے بارے میں",
+    "tagline": "بیج جو اعتماد، پیداوار اور ترقی دیتے ہیں",
+
+    "whoWeAreEyebrow": "ہم کون ہیں",
+    "whoWeAreH2": "پاکستان کی بھروسہ مند بیج کمپنی",
+    "whoWeArePara1": "We are a leading seed company specializing in research, trade, and marketing of high-quality hybrid and open pollination seeds. Our main goal is to empower farmers with advanced, reliable, and high-performing seed varieties that ensure better yield, improved quality, and sustainable farming.",
+    "whoWeArePara2": "Cassia Seed Private Limited is a professional research, trade, and marketing company dedicated to improving agricultural productivity. We focus on the research and development of superior hybrid and open pollination vegetable seed varieties that meet the needs of modern farming and ensure consistent growth.",
+
+    "whatWeDoEyebrow": "ہم کیا کرتے ہیں",
+    "whatWeDoH2": "تحقیق، تجارت اور سہارا",
+    "rdTitle": "تحقیق و ترقی",
+    "rdBody": "زیادہ پیداوار دینے والی، بیماری مزاحم اور موسمی برداشت والی بیج اقسام تیار کرنا۔",
+    "tradingTitle": "بیج کی تجارت",
+    "tradingBody": "پاکستان بھر میں کسانوں اور ڈیلرز کو اعلیٰ معیار کے ہائبرڈ اور کھلے جرگ والے بیج درآمد، مقامی طور پر تیار اور تقسیم کرنا۔",
+    "marketingTitle": "مارکیٹنگ اور سہارا",
+    "marketingBody": "کسان اجلاس، ماہرانہ رہنمائی، فیلڈ مظاہرے اور مارکیٹنگ معاونت تاکہ کسان ہماری اختراعات سے فائدہ اٹھا سکیں۔",
+
+    "commitmentEyebrow": "ہمارا عزم",
+    "commitmentH2": "بیج جن پر کسان بھروسہ کر سکتے ہیں",
+    "commitmentBody": "ہم ایسے بیج فراہم کرنے کے لیے پرعزم ہیں جن پر کسان بھروسہ کر سکتے ہیں۔ جدید تحقیقی سہولیات، سخت معیاری کنٹرول اور مضبوط تقسیمی نیٹ ورک کے ساتھ، ہم کسانوں کی پیداواریت اور منافع میں اضافے میں مدد کرتے ہیں۔",
+
+    "vision": "ہمارا وژن",
+    "visionBody": "زراعت میں ترجیحی شراکت دار بننا، جدت، پائیداری اور عمدگی کے ذریعے ترقی کو آگے بڑھانا، اور کسانوں، کمیونٹیز اور حصہ داروں کے لیے دیرپا قدر پیدا کرنا۔",
+    "mission": "ہمارا مشن",
     "missionBody": "اعلیٰ معیار کے بیج حل اور پائیدار زرعی ترقی کے ذریعے کسانوں اور کمیونٹیز کو بااختیار بنانا۔",
+
+    "historyEyebrow": "ہماری کہانی",
+    "historyH2": "ایک چھوٹی دکان سے قومی بیج کمپنی تک",
+    "historyBody1": "Our journey began in 1985 — not as a corporate launch, but as a humble local agricultural seed shop. For forty intense years, our founder poured his dedication into this small business. He didn't just sell seeds; he built trust. Through hard work, deep market knowledge, and an unwavering focus on quality, the shop grew its reputation exponentially, evolving from a local dealer into a recognized, reliable supplier and distributor across the region.",
+    "historyBody2": "In 2022, that personal vision transformed into the formal establishment of Cassia Seed Private Limited — a pivotal moment that ushered in a new chapter focused on scaling impact. Today, the company operates as a key importer and local producer of high-quality vegetable seeds, leveraging global expertise and local production capabilities.",
+    "historyQuote": "اعتماد کے ساتھ اگائیں۔ کیسیا سیڈ پرائیویٹ لمیٹڈ کے ساتھ اگائیں۔",
+
     "story": "ہماری کہانی",
-    "storyBody": "ملتان — پاکستان کے زرعی مرکز — میں قائم، کیسیا سیڈ پرائیویٹ لمیٹڈ ایک سادہ وعدے پر بنی: پاکستان کے ہر کسان تک بہترین ایف ون ہائبرڈ بیج پہنچانا۔"
+    "storyBody": "1985 میں ایک مقامی بیج کی دکان کے طور پر شروع ہوا، 2022 میں کیسیا سیڈ پرائیویٹ لمیٹڈ کے طور پر باقاعدہ طور پر قائم ہوا۔"
   },
   "plantiva": {
     "label": "ایک نیا باب",

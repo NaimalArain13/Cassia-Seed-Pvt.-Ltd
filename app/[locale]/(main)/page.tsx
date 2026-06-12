@@ -4,7 +4,8 @@ import AboutSnippet from '@/components/landing/AboutSnippet';
 import FeatureGrid from '@/components/landing/FeatureGrid';
 import CategoryScroller from '@/components/landing/CategoryScroller';
 import FeaturedProducts from '@/components/landing/FeaturedProducts';
-import YouTubeSection from '@/components/landing/YouTubeSection';
+import SeedingCalendar from '@/components/landing/SeedingCalendar';
+// import YouTubeSection from '@/components/landing/YouTubeSection';
 import WhatsAppCTABanner from '@/components/landing/WhatsAppCTABanner';
 
 export default function HomePage() {
@@ -16,7 +17,8 @@ export default function HomePage() {
       <FeatureGrid />
       <CategoryScroller />
       <FeaturedProducts />
-      <YouTubeSection />
+      <SeedingCalendar />
+      {/* <YouTubeSection /> */}
       <WhatsAppCTABanner />
     </>
   );

@@ -3,6 +3,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { BrandProvider } from '@/lib/brand-context';
+import BrandSelectorScreen from '@/components/shared/BrandSelectorScreen';
 import type { Locale } from '@/i18n/routing';
 
 interface Props {
@@ -21,7 +22,10 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <BrandProvider>{children}</BrandProvider>
+      <BrandProvider>
+        <BrandSelectorScreen />
+        {children}
+      </BrandProvider>
     </NextIntlClientProvider>
   );
 }

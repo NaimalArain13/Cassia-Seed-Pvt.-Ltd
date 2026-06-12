@@ -7,10 +7,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return { title: t('pageTitle') + ' — Cassia Seed Pvt. Ltd' };
 }
 
-const WA_NUMBER = '923001234567';
-const EMAIL = 'info@cassiaseed.com';
+const WA_NUMBER = '923255557303';
+const EMAIL = 'Info@cassiaseed.com';
 const MAPS_EMBED =
-  'https://maps.google.com/maps?q=Multan,+Punjab,+Pakistan&output=embed';
+  'https://maps.google.com/maps?q=Gulshan-e-Zealpak+Cooperative+Housing+Society,+SITE+Area,+Hyderabad,+Sindh,+Pakistan&output=embed';
 
 export default function ContactPage() {
   return <ContactContent />;
@@ -24,7 +24,7 @@ function ContactContent() {
       {/* Header */}
       <section
         style={{
-          background: 'var(--primary)',
+          background: 'var(--navbar-bg)',
           color: '#FFFFFF',
           padding: '80px 0 60px',
         }}
@@ -66,7 +66,7 @@ function ContactContent() {
               <div>
                 <div style={{ fontWeight: 700, fontSize: 15 }}>{t('whatsappLabel')}</div>
                 <div style={{ color: 'var(--text-muted)', fontSize: 14 }}>
-                  +92 300 1234567
+                  +92 325 5557303
                 </div>
               </div>
             </a>
@@ -90,9 +90,9 @@ function ContactContent() {
               </div>
             </a>
 
-            {/* Phone */}
+            {/* Landline */}
             <a
-              href="tel:+923001234567"
+              href="tel:+922234003​98"
               className="card"
               style={{
                 padding: 28,
@@ -105,35 +105,64 @@ function ContactContent() {
               <span style={{ fontSize: 36 }}>📞</span>
               <div>
                 <div style={{ fontWeight: 700, fontSize: 15 }}>{t('phone')}</div>
-                <div style={{ color: 'var(--text-muted)', fontSize: 14 }}>+92 300 1234567</div>
+                <div style={{ color: 'var(--text-muted)', fontSize: 14 }}>022-3400398</div>
+              </div>
+            </a>
+
+            {/* Mobile */}
+            <a
+              href="tel:+923255557303"
+              className="card"
+              style={{
+                padding: 28,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 16,
+                textDecoration: 'none',
+              }}
+            >
+              <span style={{ fontSize: 36 }}>📱</span>
+              <div>
+                <div style={{ fontWeight: 700, fontSize: 15 }}>{t('mobile')}</div>
+                <div style={{ color: 'var(--text-muted)', fontSize: 14 }}>0325-5557303</div>
               </div>
             </a>
 
             {/* Address */}
             <div
               className="card"
-              style={{ padding: 28, display: 'flex', alignItems: 'center', gap: 16 }}
+              style={{
+                padding: 28,
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: 16,
+                gridColumn: 'span 2',
+              }}
             >
-              <span style={{ fontSize: 36 }}>📍</span>
+              <span style={{ fontSize: 36, flexShrink: 0 }}>📍</span>
               <div>
                 <div style={{ fontWeight: 700, fontSize: 15 }}>{t('address')}</div>
-                <div style={{ color: 'var(--text-muted)', fontSize: 14 }}>{t('addressValue')}</div>
+                <div style={{ color: 'var(--text-muted)', fontSize: 14, marginTop: 4, lineHeight: 1.6 }}>
+                  {t('addressValue')}
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Google Maps embed */}
-          <div style={{ borderRadius: 12, overflow: 'hidden', border: '1px solid var(--border)' }}>
-            <iframe
-              src={MAPS_EMBED}
-              title={t('mapTitle')}
-              width="100%"
-              height="400"
-              style={{ border: 0, display: 'block' }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+          {/* Google Maps embed — hidden until verified */}
+          {false && (
+            <div style={{ borderRadius: 12, overflow: 'hidden', border: '1px solid var(--border)' }}>
+              <iframe
+                src={MAPS_EMBED}
+                title={t('mapTitle')}
+                width="100%"
+                height="400"
+                style={{ border: 0, display: 'block' }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          )}
         </div>
       </section>
     </div>

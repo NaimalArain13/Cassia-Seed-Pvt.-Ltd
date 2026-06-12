@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { useBrand } from '@/lib/brand-context';
+import { getComingSoonImage } from '@/lib/product-images';
 
 export default function AboutSnippet() {
   const { brand } = useBrand();
@@ -11,9 +12,7 @@ export default function AboutSnippet() {
   const t = useTranslations('about');
   const isC = brand === 'cassia';
 
-  const imgSrc = isC
-    ? '/assets/products/cassia-sponge-gourd-queen-2.png'
-    : '/assets/products/malapine-tomato-redo.jpeg';
+  const imgSrc = isC ? getComingSoonImage('cassia') : getComingSoonImage('malapine');
 
   const h2 = isC ? t('cassiaH2') : t('malapineH2');
   const bodyEn = isC ? t('cassiaBody') : t('malapineBody');

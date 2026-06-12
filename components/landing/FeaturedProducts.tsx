@@ -1,8 +1,9 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { useBrand } from '@/lib/brand-context';
-import ProductCard, { type ProductData } from '@/components/products/ProductCard';
+import ComingSoonCard from '@/components/products/ComingSoonCard';
+import type { ProductData } from '@/components/products/ProductCard';
 
 const CASSIA_PRODUCTS: ProductData[] = [
   {
@@ -72,9 +73,9 @@ const MALAPINE_PRODUCTS: ProductData[] = [
 
 export default function FeaturedProducts() {
   const { brand } = useBrand();
-  const locale = useLocale();
   const t = useTranslations('products');
   const products = brand === 'malapine' ? MALAPINE_PRODUCTS : CASSIA_PRODUCTS;
+  const activeBrand = brand === 'malapine' ? 'malapine' : 'cassia';
 
   return (
     <section className="section section-band">
@@ -87,7 +88,7 @@ export default function FeaturedProducts() {
         </div>
         <div className="product-grid">
           {products.map((p, i) => (
-            <ProductCard key={i} product={p} locale={locale} />
+            <ComingSoonCard key={i} brand={activeBrand} weight={p.wt} />
           ))}
         </div>
       </div>

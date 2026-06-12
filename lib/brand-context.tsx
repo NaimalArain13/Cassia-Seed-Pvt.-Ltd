@@ -15,20 +15,26 @@ const BrandContext = createContext<BrandContextType>({
   setBrand: () => {},
 });
 
+const VALID_BRANDS: Brand[] = ['cassia', 'malapine', 'plantiva'];
+
 export function BrandProvider({ children }: { children: React.ReactNode }) {
   const [brand, setBrandState] = useState<Brand>('cassia');
   const locale = useLocale();
 
   useEffect(() => {
-    const saved = localStorage.getItem('cassia-brand') as Brand | null;
-    if (saved && ['cassia', 'malapine', 'plantiva'].includes(saved)) {
-      setBrandState(saved);
-    }
+    try {
+      const saved = sessionStorage.getItem('cassia-brand') as Brand | null;
+      if (saved && VALID_BRANDS.includes(saved)) {
+        setBrandState(saved);
+      }
+    } catch {}
   }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-brand', brand);
-    localStorage.setItem('cassia-brand', brand);
+    try {
+      sessionStorage.setItem('cassia-brand', brand);
+    } catch {}
   }, [brand]);
 
   useEffect(() => {

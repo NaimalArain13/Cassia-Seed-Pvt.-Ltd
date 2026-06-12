@@ -5,28 +5,28 @@
    =========================================================================== */
 :root,
 [data-brand="cassia"] {
-  --c-bg:            #F9F6F0;
-  --c-surface:       #EEE8DC;
-  --c-surface-2:     #E2DACA;
-  --c-primary:       #2D6A4F;
-  --c-primary-700:   #1B4332;
-  --c-primary-300:   #74C69D;
+  --c-bg:            #FAF7F3;
+  --c-surface:       #EDE5D8;
+  --c-surface-2:     #E2D4C3;
+  --c-primary:       #C4906A;
+  --c-primary-700:   #A3705A;
+  --c-primary-300:   #DDB99A;
   --c-primary-fg:    #FFFFFF;
   --c-secondary:     #5C3A1B;
-  --c-secondary-fg:  #F9F6F0;
+  --c-secondary-fg:  #FAF7F3;
   --c-secondary-soft:#8C5A2F;
   --c-cream:         #E8DCC4;
   --c-gold-tint:     #D4A017;
   --c-accent:        #8C5A2F;
   --c-accent-fg:     #FFFFFF;
   --c-danger:        #C62828;
-  --c-text:          #1B4332;
-  --c-text-muted:    #5C7062;
-  --c-text-soft:     #8FA193;
-  --c-border:        #C8D8C0;
-  --c-border-soft:   #E2E8DA;
-  --c-navbar-bg:     #2D6A4F;
-  --c-navbar-fg:     #FFFFFF;
+  --c-text:          #3C1A08;
+  --c-text-muted:    #6E5040;
+  --c-text-soft:     #9A7860;
+  --c-border:        #D4B898;
+  --c-border-soft:   #E8DDD0;
+  --c-navbar-bg:     #E8D9C0;
+  --c-navbar-fg:     #2A1608;
   --c-card:          #FFFFFF;
   --c-success:       #2D6A4F;
   --c-warning:       #8C5A2F;
@@ -53,12 +53,12 @@
   --navbar-fg:     var(--c-navbar-fg);
   --focus-ring:    color-mix(in oklab, var(--primary) 50%, transparent);
 
-  --shadow-xs:     0 1px 2px rgba(26,46,26,0.06);
-  --shadow-sm:     0 2px 8px rgba(26,46,26,0.06);
-  --shadow-md:     0 4px 24px rgba(26,46,26,0.08);
-  --shadow-lg:     0 12px 32px rgba(26,46,26,0.12);
-  --shadow-xl:     0 24px 60px rgba(26,46,26,0.16);
-  --shadow-navbar: 0 4px 16px rgba(26,46,26,0.08);
+  --shadow-xs:     0 1px 2px rgba(60,26,8,0.07);
+  --shadow-sm:     0 2px 8px rgba(60,26,8,0.07);
+  --shadow-md:     0 4px 24px rgba(60,26,8,0.09);
+  --shadow-lg:     0 12px 32px rgba(60,26,8,0.13);
+  --shadow-xl:     0 24px 60px rgba(60,26,8,0.17);
+  --shadow-navbar: 0 4px 16px rgba(60,26,8,0.09);
 }
 
 /* ===========================================================================
@@ -221,6 +221,27 @@
    =========================================================================== */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+
+/* Brand gate — blocks the landing page before brand selection */
+@keyframes brand-spin { to { transform: rotate(360deg); } }
+#brand-gate {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  background: #FAF7F3;
+  align-items: center;
+  justify-content: center;
+}
+.brand-gate #brand-gate { display: flex; }
+#brand-gate-spinner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid #D4B898;
+  border-top-color: #C4906A;
+  animation: brand-spin 0.85s linear infinite;
+}
 body {
   background: var(--bg);
   color: var(--text);
@@ -580,7 +601,7 @@ img { max-width: 100%; height: auto; }
   color: #FFFFFF;
 }
 .hero[data-bg="cassia"] {
-  background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 60%, #40916C 100%);
+  background: linear-gradient(135deg, #4A2F12 0%, #8C5A2F 55%, #C4906A 100%);
 }
 .hero[data-bg="malapine"] {
   background: radial-gradient(ellipse at 70% 30%, #2A2418 0%, #0E0E0E 70%);
@@ -829,7 +850,7 @@ img { max-width: 100%; height: auto; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.badge-brand-cassia   { background: rgba(45,106,79,0.12);   color: #2D6A4F; }
+.badge-brand-cassia   { background: rgba(196,144,106,0.14); color: #A3705A; }
 .badge-brand-malapine { background: rgba(201,168,76,0.15); color: #C9A84C; border: 1px solid rgba(201,168,76,0.4); }
 .badge-f1 { background: var(--accent); color: var(--accent-fg); }
 .product-name { font-size: 17px; font-weight: 600; margin: 0 0 4px; line-height: 1.25; }
@@ -938,7 +959,7 @@ img { max-width: 100%; height: auto; }
 /* ===========================================================================
    Footer
    =========================================================================== */
-.footer { background: #1A2E1A; color: #E2E8DA; padding: 64px 0 24px; }
+.footer { background: #E8D9C0; color: #2A1608; padding: 64px 0 24px; }
 [data-brand="malapine"] .footer { background: #050505; color: #F0E6CC; border-top: 1px solid var(--border); }
 .footer-grid {
   display: grid;
@@ -952,7 +973,7 @@ img { max-width: 100%; height: auto; }
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
   margin: 0 0 14px;
-  color: #FFFFFF;
+  color: #2A1608;
   opacity: 0.9;
 }
 [data-brand="malapine"] .footer h4 { color: var(--primary); }
@@ -961,7 +982,7 @@ img { max-width: 100%; height: auto; }
 .footer li:hover { opacity: 1; }
 .footer-brand { display: flex; flex-direction: column; gap: 14px; }
 .footer-brand-row { display: flex; align-items: center; gap: 10px; }
-.footer-brand-name { font-size: 18px; font-weight: 700; color: #FFFFFF; }
+.footer-brand-name { font-size: 18px; font-weight: 700; color: #2A1608; }
 [data-brand="malapine"] .footer-brand-name { color: var(--primary); letter-spacing: 0.06em; }
 .footer-tag { font-size: 13px; opacity: 0.7; max-width: 320px; line-height: 1.55; margin: 0; }
 .footer-socials { display: flex; gap: 10px; }
@@ -980,6 +1001,9 @@ img { max-width: 100%; height: auto; }
   text-decoration: none;
 }
 .footer-soc:hover { background: rgba(255,255,255,0.16); }
+[data-brand="cassia"] .footer-soc { background: rgba(42,22,8,0.08); }
+[data-brand="cassia"] .footer-soc:hover { background: rgba(42,22,8,0.16); }
+[data-brand="cassia"] .footer-bottom { border-top-color: rgba(42,22,8,0.15); }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.1);
   margin-top: 48px;

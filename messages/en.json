@@ -51,7 +51,7 @@
   "about": {
     "eyebrow": "Who we are",
     "cassiaH2": "Empowering farmers since day one",
-    "cassiaBody": "Cassia Seed Pvt. Ltd brings Pakistan's farmers the highest-quality F1 hybrid seed varieties. Based in Multan, we supply nationwide with farmer support at every step.",
+    "cassiaBody": "Cassia Seed Pvt. Ltd brings Pakistan's farmers the highest-quality F1 hybrid seed varieties. Based in Hyderabad, Sindh, we supply nationwide with farmer support at every step.",
     "cassiaUrBody": "اعلیٰ پیداوار والی ہائبرڈ بیج اقسام، پاکستان بھر میں دستیاب۔",
     "malapineH2": "Premium seeds, built for export",
     "malapineBody": "MalaPine Seeds produces hand-selected, export-grade F1 hybrid varieties. Each lot is QC'd for purity, germination, and visual uniformity before packaging.",
@@ -95,32 +95,60 @@
     "floatLabel": "Chat on WhatsApp"
   },
   "footer": {
-    "cassiaTagline": "F1 hybrid vegetable seeds. Multan, Pakistan. Nationwide supply, farmer support included.",
-    "malapineTagline": "Export-quality F1 hybrid seeds. Shipping worldwide from Multan, Pakistan.",
+    "cassiaTagline": "F1 hybrid vegetable seeds. Hyderabad, Sindh, Pakistan. Nationwide supply, farmer support included.",
+    "malapineTagline": "Export-quality F1 hybrid seeds. Shipping worldwide from Pakistan.",
     "quickLinks": "Quick Links",
     "brands": "Brands",
     "contact": "Contact",
     "copyright": "© 2026 Cassia Seed Pvt. Ltd. All rights reserved.",
-    "tagline": "Built in Multan · Trusted nationwide"
+    "tagline": "Built in Hyderabad · Trusted nationwide"
   },
   "contact": {
     "pageTitle": "Contact Us",
-    "pageSubtitle": "We're based in Multan — reach us on WhatsApp, email, or visit us directly.",
+    "pageSubtitle": "We're based in Hyderabad, Sindh — reach us on WhatsApp, email, or phone.",
     "whatsappLabel": "Chat on WhatsApp",
     "emailLabel": "Send an Email",
-    "phone": "Phone",
+    "phone": "Landline",
+    "mobile": "Mobile",
     "address": "Address",
-    "addressValue": "Multan, Punjab, Pakistan",
+    "addressValue": "Office No. F-201 & 202, 2nd Floor Office Block Main Road, Gulshan-e-Zealpak Cooperative Housing Society, SITE Area, Hyderabad, Sindh, Pakistan",
     "mapTitle": "Our Location"
   },
   "about_page": {
-    "pageTitle": "About Cassia Seed",
-    "vision": "Vision",
+    "pageTitle": "About Us",
+    "tagline": "Seeds That Deliver Trust, Yield, and Growth",
+
+    "whoWeAreEyebrow": "Who We Are",
+    "whoWeAreH2": "Pakistan's trusted seed company",
+    "whoWeArePara1": "We are a leading seed company specializing in research, trade, and marketing of high-quality hybrid and open pollination seeds. Our main goal is to empower farmers with advanced, reliable, and high-performing seed varieties that ensure better yield, improved quality, and sustainable farming.",
+    "whoWeArePara2": "Cassia Seed Private Limited is a professional research, trade, and marketing company dedicated to improving agricultural productivity. We focus on the research and development of superior hybrid and open pollination vegetable seed varieties that meet the needs of modern farming and ensure consistent growth.",
+
+    "whatWeDoEyebrow": "What We Do",
+    "whatWeDoH2": "Research, Trade & Support",
+    "rdTitle": "Research & Development",
+    "rdBody": "Creating high-yielding, disease-resistant, and climate-tolerant seed varieties.",
+    "tradingTitle": "Seed Trading",
+    "tradingBody": "Importing, locally producing, and distributing premium hybrid and open pollination vegetable seeds to farmers and dealers nationwide.",
+    "marketingTitle": "Marketing & Support",
+    "marketingBody": "Farmer meetings, expert guidance, field demonstrations, and marketing support to ensure farmers benefit from our innovations.",
+
+    "commitmentEyebrow": "Our Commitment",
+    "commitmentH2": "Seeds farmers can trust",
+    "commitmentBody": "We are committed to delivering seeds that farmers can trust. With advanced research facilities, strict quality control, and strong distribution networks, we help farmers increase productivity and profitability.",
+
+    "vision": "Our Vision",
     "visionBody": "To be the preferred partners in agriculture, driving growth through innovation, sustainability, and excellence, while creating enduring value for farmers, communities, and stakeholders.",
-    "mission": "Mission",
+    "mission": "Our Mission",
     "missionBody": "Empowering farmers and communities through high-quality seed solutions and sustainable agricultural growth.",
+
+    "historyEyebrow": "Our Story",
+    "historyH2": "From a humble shop to a national seed company",
+    "historyBody1": "Our journey began in 1985 — not as a corporate launch, but as a humble local agricultural seed shop. For forty intense years, our founder poured his dedication into this small business. He didn't just sell seeds; he built trust. Through hard work, deep market knowledge, and an unwavering focus on quality, the shop grew its reputation exponentially, evolving from a local dealer into a recognized, reliable supplier and distributor across the region.",
+    "historyBody2": "In 2022, that personal vision transformed into the formal establishment of Cassia Seed Private Limited — a pivotal moment that ushered in a new chapter focused on scaling impact. Today, the company operates as a key importer and local producer of high-quality vegetable seeds, leveraging global expertise and local production capabilities to drive sustainable growth of Pakistan's agriculture sector.",
+    "historyQuote": "Grow with confidence. Grow with Cassia Seed Private Limited.",
+
     "story": "Our Story",
-    "storyBody": "Founded in Multan — Pakistan's agricultural heartland — Cassia Seed Pvt. Ltd was built on a simple promise: bring the best F1 hybrid seed varieties to every farmer in Pakistan, backed by agronomist support at every step."
+    "storyBody": "Started in 1985 as a local seed shop, formally incorporated in 2022 as Cassia Seed Private Limited — dedicated to empowering Pakistan's farmers with the best seed varieties."
   },
   "plantiva": {
     "label": "A new chapter",

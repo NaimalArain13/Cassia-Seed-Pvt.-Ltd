@@ -3,13 +3,9 @@
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { useBrand } from '@/lib/brand-context';
+import { getComingSoonImage } from '@/lib/product-images';
 
-const WA_NUMBER = '923001234567';
-
-const HERO_IMAGES = {
-  cassia: '/assets/products/cassia-ahmer-tomato.png',
-  malapine: '/assets/products/malapine-papaya-royal.png',
-};
+const WA_NUMBER = '923255557303';
 
 export default function HeroSection() {
   const { brand } = useBrand();
@@ -24,7 +20,7 @@ export default function HeroSection() {
   const subUr = isMapline ? t('malapineUrSub') : t('cassiaUrSub');
   const cta1 = isMapline ? t('malapineCta1') : t('cassiaCta1');
   const cta2 = t('cta2');
-  const imgSrc = HERO_IMAGES[brand as keyof typeof HERO_IMAGES] ?? HERO_IMAGES.cassia;
+  const imgSrc = brand === 'malapine' ? getComingSoonImage('malapine') : getComingSoonImage('cassia');
 
   return (
     <section className="hero" data-bg={brand}>

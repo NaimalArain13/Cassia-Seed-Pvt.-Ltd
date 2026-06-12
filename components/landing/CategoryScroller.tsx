@@ -2,14 +2,16 @@
 
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { getComingSoonImage } from '@/lib/product-images';
+
+const CS = getComingSoonImage('cassia');
 
 const CATEGORIES = [
-  { slug: 'tomatoes', name: 'Tomatoes', count: 12, img: '/assets/products/cassia-ahmer-tomato.png' },
-  { slug: 'peppers', name: 'Peppers', count: 9, img: '/assets/products/cassia-hot-pepper-555.jpeg' },
-  { slug: 'gourds', name: 'Gourds', count: 7, img: '/assets/products/cassia-sponge-gourd-queen-2.png' },
-  { slug: 'root-vegetables', name: 'Root Veg.', count: 6, img: '/assets/products/cassia-radish-mino-early.png' },
-  { slug: 'leafy-greens', name: 'Leafy Greens', count: 4, img: '/assets/products/cassia-turnip-purple-top.png' },
+  { slug: 'tomatoes', name: 'Tomatoes', count: 12, img: CS },
+  { slug: 'peppers', name: 'Peppers', count: 9, img: CS },
+  { slug: 'gourds', name: 'Gourds', count: 7, img: CS },
+  { slug: 'root-vegetables', name: 'Root Veg.', count: 6, img: CS },
+  { slug: 'leafy-greens', name: 'Leafy Greens', count: 4, img: CS },
 ];
 
 export default function CategoryScroller() {
@@ -18,19 +20,14 @@ export default function CategoryScroller() {
   return (
     <section className="section">
       <div className="container">
-        <div className="flex-between" style={{ alignItems: 'flex-end' }}>
-          <div>
-            <span className="eyebrow">{t('eyebrow')}</span>
-            <h2 className="h-section">{t('h2')}</h2>
-          </div>
-          <Link href="/products" className="btn btn-ghost">
-            {t('viewAll')}
-          </Link>
+        <div>
+          <span className="eyebrow">{t('eyebrow')}</span>
+          <h2 className="h-section">{t('h2')}</h2>
         </div>
 
         <div className="cat-scroll">
           {CATEGORIES.map((c) => (
-            <Link key={c.slug} href={`/products/${c.slug}`} className="cat-card">
+            <div key={c.slug} className="cat-card" style={{ cursor: 'default' }}>
               <div className="cat-img">
                 <Image
                   src={c.img}
@@ -43,13 +40,10 @@ export default function CategoryScroller() {
               <div className="cat-body">
                 <div>
                   <h3 className="cat-name">{c.name}</h3>
-                  <p className="cat-meta">
-                    {c.count} {t('varieties')}
-                  </p>
+                  {/* <p className="cat-meta">{c.count} {t('varieties')}</p> */}
                 </div>
-                <span className="cat-arrow">→</span>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
