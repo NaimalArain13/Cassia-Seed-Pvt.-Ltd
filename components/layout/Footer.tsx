@@ -7,8 +7,8 @@ import { useBrand, type Brand } from '@/lib/brand-context';
 
 const WA_NUMBER = '923255557303';
 const SOCIAL_LINKS = {
-  facebook: 'https://www.facebook.com/cassiaseedpvtltd',
-  instagram: 'https://www.instagram.com/cassiaseedpvtltd',
+  facebook: 'https://www.facebook.com/share/14i89msye72/?mibextid=wwXIfr',
+  instagram: 'https://www.instagram.com/cassiaseedpvt.ltd?igsh=d3VnOGFwN3FhN2Mw&utm_source=qr',
 };
 
 export default function Footer() {

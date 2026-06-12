@@ -22,32 +22,19 @@ function ContactContent() {
   return (
     <div>
       {/* Header */}
-      <section
-        style={{
-          background: 'var(--navbar-bg)',
-          color: '#FFFFFF',
-          padding: '80px 0 60px',
-        }}
-      >
+      <section className="contact-hero">
         <div className="container">
           <h1 className="h-display" style={{ color: 'inherit', marginBottom: 12 }}>
             {t('pageTitle')}
           </h1>
-          <p style={{ fontSize: 18, opacity: 0.85 }}>{t('pageSubtitle')}</p>
+          <p style={{ opacity: 0.85 }}>{t('pageSubtitle')}</p>
         </div>
       </section>
 
       {/* Contact cards */}
       <section className="section">
         <div className="container">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: 20,
-              marginBottom: 48,
-            }}
-          >
+          <div className="contact-grid">
             {/* WhatsApp */}
             <a
               href={`https://wa.me/${WA_NUMBER}`}
@@ -130,14 +117,8 @@ function ContactContent() {
 
             {/* Address */}
             <div
-              className="card"
-              style={{
-                padding: 28,
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: 16,
-                gridColumn: 'span 2',
-              }}
+              className="card contact-address"
+              style={{ padding: 28, display: 'flex', alignItems: 'flex-start', gap: 16 }}
             >
               <span style={{ fontSize: 36, flexShrink: 0 }}>📍</span>
               <div>

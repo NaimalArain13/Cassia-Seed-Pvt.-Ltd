@@ -12,7 +12,9 @@ export default function AboutSnippet() {
   const t = useTranslations('about');
   const isC = brand === 'cassia';
 
-  const imgSrc = isC ? getComingSoonImage('cassia') : getComingSoonImage('malapine');
+  const imgSrc = isC
+    ? '/assets/coming-soon-product-designs/cassia-field.webp'
+    : '/assets/coming-soon-product-designs/malapine-field.png';
 
   const h2 = isC ? t('cassiaH2') : t('malapineH2');
   const bodyEn = isC ? t('cassiaBody') : t('malapineBody');
@@ -27,7 +29,13 @@ export default function AboutSnippet() {
             alt={h2}
             width={500}
             height={500}
-            style={{ objectFit: 'cover', width: '100%', height: '100%', borderRadius: 12 }}
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center 20%',
+              width: '100%',
+              height: '100%',
+              borderRadius: 12,
+            }}
           />
         </div>
         <div>

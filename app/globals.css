@@ -1088,3 +1088,189 @@ img { max-width: 100%; height: auto; }
 .flex-between { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .spacer-y-sm { height: 16px; }
 .spacer-y-md { height: 32px; }
+
+/* ===========================================================================
+   Field banner (full-bleed atmospheric image strip)
+   =========================================================================== */
+.field-banner {
+  position: relative;
+  height: clamp(260px, 38vw, 460px);
+  overflow: hidden;
+}
+.field-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.58) 0%,
+    rgba(0,0,0,0.25) 55%,
+    rgba(0,0,0,0.08) 100%
+  );
+}
+[data-brand="malapine"] .field-banner-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.72) 0%,
+    rgba(0,0,0,0.35) 55%,
+    rgba(0,0,0,0.12) 100%
+  );
+}
+.field-banner-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  color: #FFFFFF;
+}
+.field-banner-content .eyebrow { color: rgba(255,255,255,0.75); }
+.field-banner-h2 {
+  font-size: clamp(22px, 3.2vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  max-width: 520px;
+  margin: 0;
+}
+@media (max-width: 640px) {
+  .field-banner-overlay {
+    background: rgba(0,0,0,0.45);
+  }
+  .field-banner-content {
+    align-items: center;
+    text-align: center;
+  }
+  .field-banner-h2 { max-width: 100%; }
+}
+
+/* ===========================================================================
+   Mobile responsiveness overrides
+   =========================================================================== */
+
+/* Page headers (About, Contact) — responsive padding */
+.page-hero { padding: 80px 0 60px; }
+@media (max-width: 767px) {
+  .page-hero { padding: 48px 0 36px; }
+  .page-hero .h-display { font-size: clamp(28px, 8vw, 40px); }
+  .page-hero p { font-size: 15px; }
+}
+
+/* Hero: reduce excessive top/bottom padding on phones */
+@media (max-width: 767px) {
+  .hero {
+    padding: 52px 0 40px;
+    min-height: auto;
+  }
+  /* Shrink the seed-packet mock image so it doesn't dominate the viewport */
+  .hero-card-mock img {
+    max-width: 220px;
+  }
+  .hero-card-mock {
+    justify-content: center;
+  }
+  /* Reduce hero h1 slightly on very small phones */
+  .hero h1 {
+    font-size: clamp(32px, 8vw, 48px);
+  }
+  .hero p {
+    font-size: 16px;
+    margin: 16px 0 24px;
+  }
+}
+
+/* Feature grid: 1 column on very narrow screens */
+@media (max-width: 400px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* About section VM cards: single column on small phones */
+@media (max-width: 480px) {
+  .about-vm {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer: single column stacking on phones — avoids cramped 150px columns */
+@media (max-width: 639px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+  }
+}
+
+/* Stats bar: keep 2-col on phones but tighten gap */
+@media (max-width: 480px) {
+  .stats-grid {
+    gap: 16px;
+  }
+  .stat-num {
+    font-size: 20px;
+  }
+}
+
+/* Category scroller: smaller fixed width per card on phones */
+@media (max-width: 480px) {
+  .cat-card {
+    flex: 0 0 180px;
+  }
+}
+
+/* Contact page hero */
+.contact-hero {
+  background: linear-gradient(135deg, #4A2F12 0%, #8C5A2F 55%, #C4906A 100%);
+  color: #FFFFFF;
+  padding: 80px 0 60px;
+  width: 100%;
+}
+[data-brand="malapine"] .contact-hero {
+  background: radial-gradient(ellipse at 70% 30%, #2A2418 0%, #0E0E0E 70%);
+  color: #F0E6CC;
+}
+@media (max-width: 767px) {
+  .contact-hero { padding: 48px 0 36px; }
+  .contact-hero .h-display { font-size: clamp(28px, 8vw, 40px); }
+  .contact-hero p { font-size: 15px; }
+}
+
+/* Contact page cards grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.contact-address {
+  grid-column: span 2;
+}
+@media (max-width: 639px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-address {
+    grid-column: span 1;
+  }
+}
+
+/* Brand selector screen: ensure cards can stack on narrow phones */
+@media (max-width: 480px) {
+  .brand-selector-cards {
+    flex-direction: column !important;
+    align-items: center;
+  }
+  .brand-selector-card {
+    width: 100% !important;
+    max-width: 300px !important;
+    min-width: 0 !important;
+  }
+}

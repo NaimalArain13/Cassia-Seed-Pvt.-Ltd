@@ -24,11 +24,8 @@ function AboutContent() {
     <div>
       {/* Page header */}
       <section
-        style={{
-          background: 'var(--navbar-bg)',
-          color: '#FFFFFF',
-          padding: '80px 0 60px',
-        }}
+        className="page-hero"
+        style={{ background: 'var(--navbar-bg)', color: '#FFFFFF' }}
       >
         <div className="container">
           <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.75)' }}>

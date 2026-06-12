@@ -135,7 +135,7 @@ export default function SeedingCalendar() {
                 onClick={() => setSelected(monthNum)}
                 style={{
                   flexShrink: 0,
-                  minWidth: 56,
+                  minWidth: 48,
                   padding: '8px 4px',
                   borderRadius: 10,
                   border: isActive ? '2px solid var(--primary)' : '2px solid var(--border-soft)',
@@ -215,7 +215,7 @@ export default function SeedingCalendar() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(min(180px, 100%), 1fr))',
               gap: 14,
             }}
           >

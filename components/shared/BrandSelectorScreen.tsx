@@ -195,12 +195,13 @@ export default function BrandSelectorScreen() {
                 lineHeight: 1.2,
               }}
             >
-              Cassia Group of Seeds
+              Cassia Seed Group
             </h1>
             <p style={{ color: '#7A6355', fontSize: 16 }}>Choose a brand to continue</p>
           </div>
 
           <div
+            className="brand-selector-cards"
             style={{
               display: 'flex',
               gap: 20,
@@ -213,6 +214,7 @@ export default function BrandSelectorScreen() {
             {BRANDS.filter((b) => b.id !== 'plantiva').map((b) => (
               <button
                 key={b.id}
+                className="brand-selector-card"
                 onClick={() => handleSelect(b.id)}
                 style={{
                   ...b.cardStyle,
