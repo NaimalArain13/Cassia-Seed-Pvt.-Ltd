@@ -20,9 +20,17 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   const messages = await getMessages();
 
+  const dir = locale === 'ur' ? 'rtl' : 'ltr';
+
   return (
     <NextIntlClientProvider messages={messages}>
       <BrandProvider>
+        {/* Sync lang + dir on <html> before paint — needed for font and RTL CSS selectors */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.lang="${locale}";document.documentElement.dir="${dir}";`,
+          }}
+        />
         <BrandSelectorScreen />
         {children}
       </BrandProvider>

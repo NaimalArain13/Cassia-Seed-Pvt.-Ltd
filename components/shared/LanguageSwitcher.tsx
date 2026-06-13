@@ -3,7 +3,7 @@
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/navigation';
 
-const LOCALES = ['en', 'ur'] as const;
+const LOCALES = ['en', 'ur', 'zh'] as const;
 
 export default function LanguageSwitcher() {
   const locale = useLocale();

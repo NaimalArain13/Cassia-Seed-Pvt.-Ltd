@@ -2,7 +2,7 @@ import HeroSection from '@/components/landing/HeroSection';
 import StatsBar from '@/components/landing/StatsBar';
 import AboutSnippet from '@/components/landing/AboutSnippet';
 import FeatureGrid from '@/components/landing/FeatureGrid';
-import FieldBanner from '@/components/landing/FieldBanner';
+import SeasonalFruitBanner from '@/components/landing/SeasonalFruitBanner';
 import CategoryScroller from '@/components/landing/CategoryScroller';
 import FeaturedProducts from '@/components/landing/FeaturedProducts';
 import SeedingCalendar from '@/components/landing/SeedingCalendar';
@@ -16,7 +16,7 @@ export default function HomePage() {
       <StatsBar />
       <AboutSnippet />
       <FeatureGrid />
-      <FieldBanner />
+      <SeasonalFruitBanner />
       <CategoryScroller />
       <FeaturedProducts />
       <SeedingCalendar />

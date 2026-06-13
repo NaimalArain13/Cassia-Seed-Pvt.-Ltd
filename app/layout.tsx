@@ -15,6 +15,7 @@ const notoNastaliq = Noto_Nastaliq_Urdu({
   display: 'swap',
 });
 
+
 export const metadata: Metadata = {
   title: 'Cassia Seed Pvt. Ltd — F1 Hybrid Seeds, Pakistan',
   description:

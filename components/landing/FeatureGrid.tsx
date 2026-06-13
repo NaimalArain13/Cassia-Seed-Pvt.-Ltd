@@ -19,7 +19,7 @@ const MALAPINE_FEATURES = [
 
 const CASSIA_DATA = [
   { ico: '🌿', title: 'F1 Hybrid Quality', desc: 'Certified high-yield varieties bred for Pakistan.' },
-  { ico: '📈', title: 'Maximum Yield', desc: "Engineered for Pakistan's climate and soils." },
+  { ico: '📈', title: 'Maximum Yield', desc: "Engineered for South Asia's climate and soils." },
   { ico: '🤝', title: 'Farmer Support', desc: 'Agronomist guidance from sowing to harvest.' },
   { ico: '🚚', title: 'Nationwide Delivery', desc: 'From Karachi to Peshawar — and everywhere between.' },
 ];
