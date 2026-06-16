@@ -10,11 +10,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const CATEGORIES = [
-  { slug: 'tomatoes', name: 'Tomatoes', count: 12, img: '/assets/products/cassia-ahmer-tomato.png' },
-  { slug: 'peppers', name: 'Peppers & Chillies', count: 9, img: '/assets/products/cassia-hot-pepper-555.jpeg' },
-  { slug: 'gourds', name: 'Gourds', count: 7, img: '/assets/products/cassia-sponge-gourd-queen-2.png' },
-  { slug: 'root-vegetables', name: 'Root Vegetables', count: 6, img: '/assets/products/cassia-radish-mino-early.png' },
-  { slug: 'leafy-greens', name: 'Leafy Greens', count: 4, img: '/assets/products/cassia-turnip-purple-top.png' },
+  { slug: 'tomatoes', name: 'Tomatoes', count: 12, img: '/assets/categories/tomatoes/roma-tomato.jpeg' },
+  { slug: 'peppers',  name: 'Peppers & Chillies', count: 9, img: '/assets/categories/peppers/serrano-pepper.jpeg' },
+  { slug: 'gourds',   name: 'Gourds', count: 6, img: '/assets/categories/gourds/bottle-gourd.jpeg' },
+  { slug: 'brinjals', name: 'Brinjals', count: 6, img: '/assets/categories/brinjals/brinjal.jpeg' },
 ];
 
 export default function ProductsPage() {
@@ -26,14 +25,9 @@ function ProductsContent() {
 
   return (
     <div>
-      <section
-        style={{ background: 'var(--primary)', color: '#FFFFFF', padding: '80px 0 60px' }}
-      >
+      <section className="contact-hero">
         <div className="container">
-          <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            {t('eyebrow')}
-          </span>
-          <h1 className="h-display" style={{ color: 'inherit', marginTop: 8 }}>
+          <h1 className="h-display" style={{ color: 'inherit', marginBottom: 12 }}>
             {t('h2')}
           </h1>
         </div>

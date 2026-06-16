@@ -2,16 +2,13 @@
 
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { getComingSoonImage } from '@/lib/product-images';
-
-const CS = getComingSoonImage('cassia');
+import { Link } from '@/i18n/navigation';
 
 const CATEGORIES = [
-  { slug: 'tomatoes', name: 'Tomatoes', count: 12, img: CS },
-  { slug: 'peppers', name: 'Peppers', count: 9, img: CS },
-  { slug: 'gourds', name: 'Gourds', count: 7, img: CS },
-  { slug: 'root-vegetables', name: 'Root Veg.', count: 6, img: CS },
-  { slug: 'leafy-greens', name: 'Leafy Greens', count: 4, img: CS },
+  { slug: 'tomatoes', name: 'Tomatoes', image: '/assets/categories/tomatoes/roma-tomato.jpeg' },
+  { slug: 'peppers',  name: 'Peppers',  image: '/assets/categories/peppers/serrano-pepper.jpeg' },
+  { slug: 'gourds',   name: 'Gourds',   image: '/assets/categories/gourds/bottle-gourd.jpeg' },
+  { slug: 'brinjals', name: 'Brinjals', image: '/assets/categories/brinjals/brinjal.jpeg' },
 ];
 
 export default function CategoryScroller() {
@@ -27,10 +24,10 @@ export default function CategoryScroller() {
 
         <div className="cat-scroll">
           {CATEGORIES.map((c) => (
-            <div key={c.slug} className="cat-card" style={{ cursor: 'default' }}>
+            <Link key={c.slug} href={`/products/${c.slug}`} className="cat-card">
               <div className="cat-img">
                 <Image
-                  src={c.img}
+                  src={c.image}
                   alt={c.name}
                   width={200}
                   height={160}
@@ -38,12 +35,9 @@ export default function CategoryScroller() {
                 />
               </div>
               <div className="cat-body">
-                <div>
-                  <h3 className="cat-name">{c.name}</h3>
-                  {/* <p className="cat-meta">{c.count} {t('varieties')}</p> */}
-                </div>
+                <h3 className="cat-name">{c.name}</h3>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

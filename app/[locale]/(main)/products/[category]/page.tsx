@@ -1,8 +1,10 @@
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import ProductCard, { type ProductData } from '@/components/products/ProductCard';
 import { Link } from '@/i18n/navigation';
+import { CATEGORY_TYPES } from '@/lib/category-types';
 import type { Metadata } from 'next';
 
 const ALL_PRODUCTS: ProductData[] = [
@@ -88,7 +90,7 @@ const ALL_PRODUCTS: ProductData[] = [
   },
 ];
 
-const VALID_CATEGORIES = ['tomatoes', 'peppers', 'gourds', 'root-vegetables', 'leafy-greens'];
+const VALID_CATEGORIES = ['tomatoes', 'peppers', 'gourds', 'brinjals', 'root-vegetables', 'leafy-greens'];
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -104,9 +106,73 @@ export default async function CategoryPage({ params }: Props) {
   const { category } = await params;
   if (!VALID_CATEGORIES.includes(category)) notFound();
   const locale = await getLocale();
-  const products = ALL_PRODUCTS.filter((p) => p.category === category);
+  const types = CATEGORY_TYPES[category];
 
+  if (types) {
+    return <TypeGrid category={category} types={types} />;
+  }
+
+  const products = ALL_PRODUCTS.filter((p) => p.category === category);
   return <CategoryContent category={category} products={products} locale={locale} />;
+}
+
+function TypeGrid({ category, types }: { category: string; types: ReturnType<typeof CATEGORY_TYPES[string]['slice']> }) {
+  const categoryName = category.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+
+  return (
+    <div>
+      <section className="contact-hero">
+        <div className="container">
+          <Link href="/products" style={{ fontSize: 14, opacity: 0.75 }}>
+            ← All Categories
+          </Link>
+          <h1 className="h-display" style={{ color: 'inherit', marginTop: 12, marginBottom: 8 }}>
+            {categoryName}
+          </h1>
+          <p style={{ opacity: 0.75, marginTop: 0 }}>{types.length} varieties</p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+              gap: 20,
+            }}
+          >
+            {types.map((type) => (
+              <Link
+                key={type.slug}
+                href={`/products/${category}/${type.slug}`}
+                style={{ textDecoration: 'none' }}
+              >
+                <div
+                  className="card"
+                  style={{ overflow: 'hidden', cursor: 'pointer' }}
+                >
+                  <div style={{ position: 'relative', aspectRatio: '3/4', width: '100%' }}>
+                    <Image
+                      src={type.image}
+                      alt={type.name}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 200px"
+                    />
+                  </div>
+                  <div style={{ padding: '14px 16px' }}>
+                    <div style={{ fontWeight: 600, fontSize: 15, color: 'var(--text)' }}>{type.name}</div>
+                    <div style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 4 }}>{type.use}</div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
 
 function CategoryContent({
@@ -123,15 +189,15 @@ function CategoryContent({
 
   return (
     <div>
-      <section style={{ background: 'var(--primary)', color: '#FFFFFF', padding: '80px 0 60px' }}>
+      <section className="contact-hero">
         <div className="container">
-          <Link href="/products" style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14 }}>
+          <Link href="/products" style={{ fontSize: 14, opacity: 0.75 }}>
             ← {t('eyebrow')}
           </Link>
-          <h1 className="h-display" style={{ color: 'inherit', marginTop: 12 }}>
+          <h1 className="h-display" style={{ color: 'inherit', marginTop: 12, marginBottom: 8 }}>
             {categoryName}
           </h1>
-          <p style={{ opacity: 0.8, marginTop: 8 }}>
+          <p style={{ opacity: 0.75, marginTop: 0 }}>
             {products.length} {t('varieties')}
           </p>
         </div>

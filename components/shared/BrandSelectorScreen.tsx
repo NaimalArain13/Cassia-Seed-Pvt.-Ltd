@@ -255,6 +255,48 @@ export default function BrandSelectorScreen() {
                 </div>
               </button>
             ))}
+
+            {/* ── "New Brand Coming Soon" — display only, not clickable ── */}
+            <div
+              style={{
+                background: '#F5F5F5',
+                border: '2px dashed #BBBBBB',
+                borderRadius: 16,
+                padding: '28px 24px',
+                minWidth: 200,
+                maxWidth: 260,
+                flex: '1 1 190px',
+                cursor: 'default',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 14,
+                opacity: 0.7,
+                boxShadow: 'none',
+              }}
+            >
+              <div
+                style={{
+                  width: 72,
+                  height: 72,
+                  borderRadius: 8,
+                  background: '#E0E0E0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 28,
+                  color: '#AAAAAA',
+                }}
+              >
+                ?
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontWeight: 700, fontSize: 15, color: '#888888', marginBottom: 4 }}>
+                  Upcoming Brand
+                </div>
+                <div style={{ fontSize: 13, color: '#AAAAAA' }}>Coming Soon</div>
+              </div>
+            </div>
           </div>
         </div>
       )}

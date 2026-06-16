@@ -23,23 +23,12 @@ function AboutContent() {
   return (
     <div>
       {/* Page header */}
-      <section
-        className="page-hero"
-        style={{ background: 'var(--navbar-bg)', color: '#FFFFFF' }}
-      >
+      <section className="contact-hero">
         <div className="container">
-          <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            {t('whoWeAreEyebrow')}
-          </span>
-          <h1
-            className="h-display"
-            style={{ color: 'inherit', marginBottom: 16, marginTop: 8 }}
-          >
+          <h1 className="h-display" style={{ color: 'inherit', marginBottom: 12 }}>
             {t('pageTitle')}
           </h1>
-          <p style={{ fontSize: 18, opacity: 0.85, maxWidth: 560, margin: 0 }}>
-            {t('tagline')}
-          </p>
+          <p style={{ opacity: 0.85 }}>{t('tagline')}</p>
         </div>
       </section>
 
