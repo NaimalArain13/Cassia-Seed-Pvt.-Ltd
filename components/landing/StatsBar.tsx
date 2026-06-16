@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useBrand } from '@/lib/brand-context';
@@ -14,7 +14,7 @@ function parseStatValue(value: string): { target: number; suffix: string } | nul
 }
 
 function AnimatedStatValue({ value }: { value: string }) {
-  const parsed = parseStatValue(value);
+  const parsed = useMemo(() => parseStatValue(value), [value]);
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-50px' });
   const [display, setDisplay] = useState(parsed ? '0' : value);

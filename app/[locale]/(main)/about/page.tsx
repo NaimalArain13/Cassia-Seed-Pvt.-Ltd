@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
+import FadeInView from '@/components/shared/FadeInView';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('about_page');
@@ -81,10 +82,11 @@ function AboutContent() {
               gap: 20,
             }}
           >
-            {whatWeDo.map(({ icon, title, body }) => (
-              <div
+            {whatWeDo.map(({ icon, title, body }, i) => (
+              <FadeInView
                 key={title}
                 className="card"
+                delay={i * 0.1}
                 style={{
                   padding: '28px 24px',
                   borderTop: '4px solid var(--primary)',
@@ -111,7 +113,7 @@ function AboutContent() {
                 >
                   {body}
                 </p>
-              </div>
+              </FadeInView>
             ))}
           </div>
         </div>
@@ -157,18 +159,18 @@ function AboutContent() {
               gap: 24,
             }}
           >
-            <div className="vm-card card" style={{ padding: 32 }}>
+            <FadeInView className="vm-card card" style={{ padding: 32 }}>
               <div className="label eyebrow">{t('vision')}</div>
               <p style={{ fontSize: 16, lineHeight: 1.7, marginTop: 12, marginBottom: 0 }}>
                 {t('visionBody')}
               </p>
-            </div>
-            <div className="vm-card card" style={{ padding: 32 }}>
+            </FadeInView>
+            <FadeInView className="vm-card card" style={{ padding: 32 }} delay={0.1}>
               <div className="label eyebrow">{t('mission')}</div>
               <p style={{ fontSize: 16, lineHeight: 1.7, marginTop: 12, marginBottom: 0 }}>
                 {t('missionBody')}
               </p>
-            </div>
+            </FadeInView>
           </div>
         </div>
       </section>

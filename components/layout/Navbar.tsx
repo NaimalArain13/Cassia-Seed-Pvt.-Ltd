@@ -58,8 +58,8 @@ export default function Navbar() {
             <Image
               src={BRAND_LOGOS[brand]}
               alt={BRAND_NAMES[brand]}
-              width={130}
-              height={44}
+              width={170}
+              height={58}
               style={{ objectFit: 'contain' }}
               priority
             />
@@ -150,8 +150,8 @@ function MobileSheetInline({ onClose, brand, closeLabel }: MobileSheetProps) {
             <Image
               src={BRAND_LOGOS[brand]}
               alt={BRAND_NAMES[brand]}
-              width={110}
-              height={38}
+              width={140}
+              height={48}
               style={{ objectFit: 'contain' }}
             />
           </div>

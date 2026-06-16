@@ -38,8 +38,8 @@ export default function Footer() {
               <Image
                 src={logoSrc[brand]}
                 alt={brand}
-                width={140}
-                height={52}
+                width={180}
+                height={67}
                 style={{ objectFit: 'contain' }}
               />
             </div>
@@ -138,6 +138,18 @@ export default function Footer() {
         <div className="footer-bottom">
           <span>{t('copyright')}</span>
           <span>{t('tagline')}</span>
+        </div>
+
+        <div className="footer-credit">
+          Developed by{' '}
+          <a
+            href="https://www.linkedin.com/in/naimal-arain-"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-credit-name"
+          >
+            Naimal Salahuddin
+          </a>
         </div>
       </div>
     </footer>

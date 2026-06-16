@@ -387,6 +387,7 @@ img { max-width: 100%; height: auto; }
   height: 72px;
   box-shadow: var(--shadow-navbar);
 }
+[data-brand="malapine"] .navbar { height: 88px; }
 .nav-inner { height: 100%; display: flex; align-items: center; gap: 24px; }
 .nav-logo {
   display: flex;
@@ -474,6 +475,10 @@ img { max-width: 100%; height: auto; }
 }
 .lang-switch button.on { background: var(--secondary); color: var(--secondary-fg); }
 [data-brand="malapine"] .lang-switch button.on { background: var(--primary); color: var(--primary-fg); }
+@media (max-width: 640px) {
+  .lang-switch { font-size: 10px; padding: 2px; }
+  .lang-switch button { padding: 4px 8px; }
+}
 
 /* Hamburger */
 .mobile-toggle {
@@ -1022,6 +1027,19 @@ img { max-width: 100%; height: auto; }
   gap: 8px;
 }
 [data-brand="malapine"] .footer-bottom { border-top-color: var(--border); }
+.footer-credit {
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 12px;
+}
+.footer-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer-credit a:hover { opacity: 0.85; }
+.footer-credit-name { font-size: 14px; font-weight: 600; }
 
 /* ===========================================================================
    Mobile Sheet Sidebar

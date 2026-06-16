@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useBrand } from '@/lib/brand-context';
 
@@ -48,11 +49,18 @@ export default function FeatureGrid() {
         </div>
         <div className="feature-grid">
           {data.map((f, i) => (
-            <div key={i} className="feature-card">
+            <motion.div
+              key={i}
+              className="feature-card"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.45, delay: i * 0.1 }}
+            >
               <div className="feature-ico">{f.ico}</div>
               <h3 className="feature-title">{f.title}</h3>
               <p className="feature-desc">{f.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
