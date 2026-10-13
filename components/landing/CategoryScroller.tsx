@@ -1,18 +1,12 @@
-'use client';
-
+import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { getCategories } from '@/sanity/lib/client';
+import { urlFor } from '@/sanity/lib/image';
 
-const CATEGORIES = [
-  { slug: 'tomatoes', name: 'Tomatoes', image: '/assets/categories/tomatoes/roma-tomato.jpeg' },
-  { slug: 'peppers',  name: 'Peppers',  image: '/assets/categories/peppers/serrano-pepper.jpeg' },
-  { slug: 'gourds',   name: 'Gourds',   image: '/assets/categories/gourds/bottle-gourd.jpeg' },
-  { slug: 'brinjals', name: 'Brinjals', image: '/assets/categories/brinjals/brinjal.jpeg' },
-];
-
-export default function CategoryScroller() {
-  const t = useTranslations('categories');
+export default async function CategoryScroller() {
+  const t = await getTranslations('categories');
+  const categories = (await getCategories()).filter((c) => c.slug !== 'root-vegetables');
 
   return (
     <section className="section">
@@ -23,19 +17,21 @@ export default function CategoryScroller() {
         </div>
 
         <div className="cat-scroll">
-          {CATEGORIES.map((c) => (
+          {categories.map((c) => (
             <Link key={c.slug} href={`/products/${c.slug}`} className="cat-card">
               <div className="cat-img">
-                <Image
-                  src={c.image}
-                  alt={c.name}
-                  width={200}
-                  height={160}
-                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-                />
+                {c.image ? (
+                  <Image
+                    src={urlFor(c.image).width(200).height(160).fit('crop').url()}
+                    alt={c.nameEn}
+                    width={200}
+                    height={160}
+                    style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                  />
+                ) : null}
               </div>
               <div className="cat-body">
-                <h3 className="cat-name">{c.name}</h3>
+                <h3 className="cat-name">{c.nameEn}</h3>
               </div>
             </Link>
           ))}

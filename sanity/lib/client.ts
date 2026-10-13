@@ -1,4 +1,5 @@
 import { createClient } from 'next-sanity';
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? 'placeholder',
@@ -7,7 +8,33 @@ export const client = createClient({
   useCdn: true,
 });
 
-export async function getProducts(brand?: string) {
+const FETCH_OPTIONS = { next: { revalidate: 60 } };
+
+export interface SanityCategory {
+  _id: string;
+  nameEn: string;
+  nameUr?: string;
+  slug: string;
+  image?: SanityImageSource;
+  count?: number;
+}
+
+export interface SanityProduct {
+  _id: string;
+  nameEn: string;
+  nameUr?: string;
+  slug: string;
+  category: string;
+  brand: 'cassia' | 'malapine';
+  descriptionEn?: string;
+  descriptionUr?: string;
+  weight?: string;
+  images?: SanityImageSource[];
+  youtubeUrl?: string;
+  featured?: boolean;
+}
+
+export async function getProducts(brand?: string): Promise<SanityProduct[]> {
   const brandFilter = brand ? `&& brand == $brand` : '';
   return client.fetch(
     `*[_type == "product" ${brandFilter}] | order(order asc) {
@@ -20,13 +47,14 @@ export async function getProducts(brand?: string) {
       weight,
       images,
       youtubeUrl,
-      featured,
+      featured
     }`,
-    brand ? { brand } : {}
+    brand ? { brand } : {},
+    FETCH_OPTIONS
   );
 }
 
-export async function getFeaturedProducts(brand?: string) {
+export async function getFeaturedProducts(brand?: string): Promise<SanityProduct[]> {
   const brandFilter = brand ? `&& brand == $brand` : '';
   return client.fetch(
     `*[_type == "product" && featured == true ${brandFilter}] | order(order asc) {
@@ -37,25 +65,73 @@ export async function getFeaturedProducts(brand?: string) {
       brand,
       descriptionEn, descriptionUr,
       weight,
-      images,
+      images
     }`,
-    brand ? { brand } : {}
+    brand ? { brand } : {},
+    FETCH_OPTIONS
   );
 }
 
-export async function getCategories() {
+export async function getCategories(): Promise<SanityCategory[]> {
   return client.fetch(
     `*[_type == "category"] | order(order asc) {
       _id,
       nameEn, nameUr,
       "slug": slug.current,
       image,
-      count,
-    }`
+      count
+    }`,
+    {},
+    FETCH_OPTIONS
   );
 }
 
-export async function getProduct(slug: string) {
+export interface SanityVariety {
+  _id: string;
+  nameEn: string;
+  nameUr?: string;
+  slug: string;
+  category: string;
+  image?: SanityImageSource;
+  use?: string;
+  season?: string;
+  origin?: string;
+  brand: 'cassia' | 'malapine';
+}
+
+export async function getVarieties(categorySlug: string): Promise<SanityVariety[]> {
+  return client.fetch(
+    `*[_type == "variety" && category->slug.current == $categorySlug] | order(order asc) {
+      _id,
+      nameEn, nameUr,
+      "slug": slug.current,
+      "category": category->slug.current,
+      image,
+      use, season, origin,
+      brand
+    }`,
+    { categorySlug },
+    FETCH_OPTIONS
+  );
+}
+
+export async function getVariety(categorySlug: string, slug: string): Promise<SanityVariety | null> {
+  return client.fetch(
+    `*[_type == "variety" && category->slug.current == $categorySlug && slug.current == $slug][0] {
+      _id,
+      nameEn, nameUr,
+      "slug": slug.current,
+      "category": category->slug.current,
+      image,
+      use, season, origin,
+      brand
+    }`,
+    { categorySlug, slug },
+    FETCH_OPTIONS
+  );
+}
+
+export async function getProduct(slug: string): Promise<(SanityProduct & { category: { nameEn: string; slug: string } }) | null> {
   return client.fetch(
     `*[_type == "product" && slug.current == $slug][0] {
       _id,
@@ -66,8 +142,9 @@ export async function getProduct(slug: string) {
       descriptionEn, descriptionUr,
       weight,
       images,
-      youtubeUrl,
+      youtubeUrl
     }`,
-    { slug }
+    { slug },
+    FETCH_OPTIONS
   );
 }

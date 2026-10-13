@@ -16,5 +16,10 @@ export const category = defineType({
     }),
     defineField({ name: 'image', title: 'Category Image', type: 'image', options: { hotspot: true } }),
     defineField({ name: 'count', title: 'Variety Count', type: 'number' }),
+    defineField({ name: 'order', title: 'Display Order', type: 'number' }),
   ],
+  orderings: [{ title: 'Display Order', name: 'orderAsc', by: [{ field: 'order', direction: 'asc' }] }],
+  preview: {
+    select: { title: 'nameEn', subtitle: 'nameUr', media: 'image' },
+  },
 });

@@ -2,7 +2,8 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { getComingSoonImage } from '@/lib/product-images';
-import { CATEGORY_TYPES } from '@/lib/category-types';
+import { getVariety } from '@/sanity/lib/client';
+import { urlFor } from '@/sanity/lib/image';
 import type { Metadata } from 'next';
 
 const WA_NUMBER = '923255557303';
@@ -13,21 +14,20 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, product } = await params;
-  const type = CATEGORY_TYPES[category]?.find((t) => t.slug === product);
-  const name = type?.name ?? product.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+  const variety = await getVariety(category, product);
+  const name = variety?.nameEn ?? product.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
   return { title: `${name} — Coming Soon — Cassia Seed Pvt. Ltd` };
 }
 
 export default async function TypeDetailPage({ params }: Props) {
   const { category, product } = await params;
 
-  const categoryTypes = CATEGORY_TYPES[category];
-  if (!categoryTypes) notFound();
+  const variety = await getVariety(category, product);
+  if (!variety) notFound();
 
-  const type = categoryTypes.find((t) => t.slug === product);
   const categoryName = category.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
-  const typeName = type?.name ?? product.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
-  const sachetImg = getComingSoonImage(type?.brand ?? 'cassia');
+  const typeName = variety.nameEn;
+  const sachetImg = getComingSoonImage(variety.brand);
 
   return (
     <div>
@@ -52,12 +52,12 @@ export default async function TypeDetailPage({ params }: Props) {
               alignItems: 'start',
             }}
           >
-            {/* Left: type illustration */}
-            {type && (
+            {/* Left: variety illustration */}
+            {variety.image && (
               <div style={{ borderRadius: 16, overflow: 'hidden', position: 'relative', aspectRatio: '3/4' }}>
                 <Image
-                  src={type.image}
-                  alt={type.name}
+                  src={urlFor(variety.image).width(600).height(800).fit('crop').url()}
+                  alt={variety.nameEn}
                   fill
                   style={{ objectFit: 'cover' }}
                   sizes="(max-width: 768px) 100vw, 40vw"
@@ -89,36 +89,34 @@ export default async function TypeDetailPage({ params }: Props) {
               <h1 className="h-section" style={{ marginBottom: 24 }}>{typeName}</h1>
 
               {/* Info table */}
-              {type && (
-                <div
-                  className="card"
-                  style={{ padding: '20px 24px', marginBottom: 28 }}
-                >
-                  {[
-                    { icon: '🍽', label: 'Common Use', value: type.use },
-                    { icon: '🌤', label: 'Growing Season', value: type.season },
-                    { icon: '🌍', label: 'Origin', value: type.origin },
-                  ].map(({ icon, label, value }) => (
-                    <div
-                      key={label}
-                      style={{
-                        display: 'flex',
-                        gap: 12,
-                        padding: '10px 0',
-                        borderBottom: '1px solid var(--border)',
-                      }}
-                    >
-                      <span style={{ fontSize: 18, flexShrink: 0 }}>{icon}</span>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', flexWrap: 'wrap', gap: 4 }}>
-                        <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                          {label}
-                        </span>
-                        <span style={{ fontSize: 14, color: 'var(--text)', fontWeight: 500 }}>{value}</span>
-                      </div>
+              <div
+                className="card"
+                style={{ padding: '20px 24px', marginBottom: 28 }}
+              >
+                {[
+                  { icon: '🍽', label: 'Common Use', value: variety.use },
+                  { icon: '🌤', label: 'Growing Season', value: variety.season },
+                  { icon: '🌍', label: 'Origin', value: variety.origin },
+                ].map(({ icon, label, value }) => (
+                  <div
+                    key={label}
+                    style={{
+                      display: 'flex',
+                      gap: 12,
+                      padding: '10px 0',
+                      borderBottom: '1px solid var(--border)',
+                    }}
+                  >
+                    <span style={{ fontSize: 18, flexShrink: 0 }}>{icon}</span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', flexWrap: 'wrap', gap: 4 }}>
+                      <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                        {label}
+                      </span>
+                      <span style={{ fontSize: 14, color: 'var(--text)', fontWeight: 500 }}>{value}</span>
                     </div>
-                  ))}
-                </div>
-              )}
+                  </div>
+                ))}
+              </div>
 
               {/* Divider */}
               <div style={{ borderTop: '1px solid var(--border)', marginBottom: 24 }} />

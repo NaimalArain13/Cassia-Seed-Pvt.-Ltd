@@ -2,95 +2,17 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import ProductCard, { type ProductData } from '@/components/products/ProductCard';
+import ProductCard from '@/components/products/ProductCard';
 import { Link } from '@/i18n/navigation';
-import { CATEGORY_TYPES } from '@/lib/category-types';
+import {
+  getCategories,
+  getProducts,
+  getVarieties,
+  type SanityProduct,
+  type SanityVariety,
+} from '@/sanity/lib/client';
+import { urlFor } from '@/sanity/lib/image';
 import type { Metadata } from 'next';
-
-const ALL_PRODUCTS: ProductData[] = [
-  {
-    slug: 'ahmer-f1',
-    category: 'tomatoes',
-    name: 'Hybrid Tomato Ahmer F1',
-    nameUr: 'ہائبرڈ ٹماٹر اَحمر ایف ون',
-    desc: 'Heat-tolerant, uniform fruit. Ideal for Pakistan\'s summer growing season.',
-    wt: 'N.Wt 10g',
-    brand: 'cassia',
-    img: '/assets/products/cassia-ahmer-tomato.png',
-  },
-  {
-    slug: 'queen-f1',
-    category: 'gourds',
-    name: 'Sponge Gourd Queen F1',
-    nameUr: 'ہائبرڈ سپنج گوارد کوئین',
-    desc: 'Long, tender, early harvest. High yield per acre.',
-    wt: 'N.Wt 50g',
-    brand: 'cassia',
-    img: '/assets/products/cassia-sponge-gourd-queen-2.png',
-  },
-  {
-    slug: 'h-555-f1',
-    category: 'peppers',
-    name: 'Hot Pepper H-555 F1',
-    nameUr: 'ہاٹ پیپر ایچ-۵۵۵',
-    desc: 'Deep red, high pungency, exporter favorite.',
-    wt: 'N.Wt 10g',
-    brand: 'cassia',
-    img: '/assets/products/cassia-hot-pepper-555.jpeg',
-  },
-  {
-    slug: 'mino-early',
-    category: 'root-vegetables',
-    name: 'Radish Mino Early',
-    nameUr: 'مولی مینو ارلی',
-    desc: 'Fast-growing, long, white, crisp variety.',
-    wt: 'N.Wt 25g',
-    brand: 'cassia',
-    img: '/assets/products/cassia-radish-mino-early.png',
-  },
-  {
-    slug: 'purple-top',
-    category: 'root-vegetables',
-    name: 'Turnip Purple Top',
-    nameUr: 'شلجم پرپل ٹاپ',
-    desc: 'Traditional variety with purple crown, sweet flavor.',
-    wt: 'N.Wt 25g',
-    brand: 'cassia',
-    img: '/assets/products/cassia-turnip-purple-top.png',
-  },
-  {
-    slug: 'beet-root',
-    category: 'root-vegetables',
-    name: 'Beet Root F1',
-    nameUr: 'چقندر ایف ون',
-    desc: 'Deep red, uniform globe shape, rich in nutrients.',
-    wt: 'N.Wt 25g',
-    brand: 'cassia',
-    img: '/assets/products/cassia-beet-root.png',
-  },
-  {
-    slug: 'redo-f1',
-    category: 'tomatoes',
-    name: 'Hybrid Tomato REDO F1',
-    nameUr: 'ہائبرڈ ٹماٹر ریڈو ایف ون',
-    desc: 'Export-grade, plum shape, long shelf life.',
-    wt: 'N.Wt 10g',
-    brand: 'malapine',
-    img: '/assets/products/malapine-tomato-redo.jpeg',
-  },
-  {
-    slug: 'royal-f1',
-    category: 'gourds',
-    name: 'Hybrid Papaya ROYAL F1',
-    nameUr: 'ہائبرڈ پپیتا رائل ایف ون',
-    desc: 'High-yield, sweet, uniform color. Export ready.',
-    wt: 'N.Wt 10g',
-    brand: 'malapine',
-    img: '/assets/products/malapine-papaya-royal.png',
-  },
-];
-
-const VALID_CATEGORIES = ['tomatoes', 'peppers', 'gourds', 'brinjals', 'root-vegetables', 'leafy-greens'];
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -104,19 +26,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryPage({ params }: Props) {
   const { category } = await params;
-  if (!VALID_CATEGORIES.includes(category)) notFound();
-  const locale = await getLocale();
-  const types = CATEGORY_TYPES[category];
 
-  if (types) {
-    return <TypeGrid category={category} types={types} />;
+  const [categories, varieties] = await Promise.all([getCategories(), getVarieties(category)]);
+  if (!categories.some((c) => c.slug === category)) notFound();
+
+  if (varieties.length > 0) {
+    return <TypeGrid category={category} varieties={varieties} />;
   }
 
-  const products = ALL_PRODUCTS.filter((p) => p.category === category);
-  return <CategoryContent category={category} products={products} locale={locale} />;
+  const locale = await getLocale();
+  const products = await getProducts();
+  const categoryProducts = products.filter((p) => p.category === category);
+  return <CategoryContent category={category} products={categoryProducts} locale={locale} />;
 }
 
-function TypeGrid({ category, types }: { category: string; types: ReturnType<typeof CATEGORY_TYPES[string]['slice']> }) {
+function TypeGrid({ category, varieties }: { category: string; varieties: SanityVariety[] }) {
   const categoryName = category.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
 
   return (
@@ -129,7 +53,7 @@ function TypeGrid({ category, types }: { category: string; types: ReturnType<typ
           <h1 className="h-display" style={{ color: 'inherit', marginTop: 12, marginBottom: 8 }}>
             {categoryName}
           </h1>
-          <p style={{ opacity: 0.75, marginTop: 0 }}>{types.length} varieties</p>
+          <p style={{ opacity: 0.75, marginTop: 0 }}>{varieties.length} varieties</p>
         </div>
       </section>
 
@@ -142,28 +66,27 @@ function TypeGrid({ category, types }: { category: string; types: ReturnType<typ
               gap: 20,
             }}
           >
-            {types.map((type) => (
+            {varieties.map((variety) => (
               <Link
-                key={type.slug}
-                href={`/products/${category}/${type.slug}`}
+                key={variety._id}
+                href={`/products/${category}/${variety.slug}`}
                 style={{ textDecoration: 'none' }}
               >
-                <div
-                  className="card"
-                  style={{ overflow: 'hidden', cursor: 'pointer' }}
-                >
+                <div className="card" style={{ overflow: 'hidden', cursor: 'pointer' }}>
                   <div style={{ position: 'relative', aspectRatio: '3/4', width: '100%' }}>
-                    <Image
-                      src={type.image}
-                      alt={type.name}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 200px"
-                    />
+                    {variety.image ? (
+                      <Image
+                        src={urlFor(variety.image).width(400).height(533).fit('crop').url()}
+                        alt={variety.nameEn}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 200px"
+                      />
+                    ) : null}
                   </div>
                   <div style={{ padding: '14px 16px' }}>
-                    <div style={{ fontWeight: 600, fontSize: 15, color: 'var(--text)' }}>{type.name}</div>
-                    <div style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 4 }}>{type.use}</div>
+                    <div style={{ fontWeight: 600, fontSize: 15, color: 'var(--text)' }}>{variety.nameEn}</div>
+                    <div style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 4 }}>{variety.use}</div>
                   </div>
                 </div>
               </Link>
@@ -181,7 +104,7 @@ function CategoryContent({
   locale,
 }: {
   category: string;
-  products: ProductData[];
+  products: SanityProduct[];
   locale: string;
 }) {
   const t = useTranslations('categories');
@@ -207,8 +130,8 @@ function CategoryContent({
         <div className="container">
           {products.length > 0 ? (
             <div className="product-grid">
-              {products.map((p, i) => (
-                <ProductCard key={i} product={p} locale={locale} />
+              {products.map((p) => (
+                <ProductCard key={p._id} product={p} locale={locale} />
               ))}
             </div>
           ) : (

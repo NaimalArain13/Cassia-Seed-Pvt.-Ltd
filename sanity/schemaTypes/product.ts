@@ -42,4 +42,14 @@ export const product = defineType({
     defineField({ name: 'order', title: 'Display Order', type: 'number' }),
   ],
   orderings: [{ title: 'Display Order', name: 'orderAsc', by: [{ field: 'order', direction: 'asc' }] }],
+  preview: {
+    select: { title: 'nameEn', brand: 'brand', media: 'images.0' },
+    prepare({ title, brand, media }) {
+      return {
+        title,
+        subtitle: brand === 'malapine' ? 'MalaPine' : 'Cassia',
+        media,
+      };
+    },
+  },
 });

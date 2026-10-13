@@ -4,9 +4,11 @@ import { getComingSoonImage } from '@/lib/product-images';
 interface Props {
   brand: 'cassia' | 'malapine';
   weight?: string;
+  imageUrl?: string;
+  alt?: string;
 }
 
-export default function ComingSoonCard({ brand, weight }: Props) {
+export default function ComingSoonCard({ brand, weight, imageUrl, alt }: Props) {
   return (
     <div
       style={{
@@ -20,8 +22,8 @@ export default function ComingSoonCard({ brand, weight }: Props) {
       }}
     >
       <Image
-        src={getComingSoonImage(brand, weight)}
-        alt="Coming Soon"
+        src={imageUrl ?? getComingSoonImage(brand, weight)}
+        alt={alt ?? 'Coming Soon'}
         fill
         style={{ objectFit: 'cover' }}
       />

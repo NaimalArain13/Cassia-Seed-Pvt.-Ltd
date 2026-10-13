@@ -8,8 +8,11 @@ import FeaturedProducts from '@/components/landing/FeaturedProducts';
 import SeedingCalendar from '@/components/landing/SeedingCalendar';
 // import YouTubeSection from '@/components/landing/YouTubeSection';
 import WhatsAppCTABanner from '@/components/landing/WhatsAppCTABanner';
+import { getFeaturedProducts } from '@/sanity/lib/client';
 
-export default function HomePage() {
+export default async function HomePage() {
+  const featuredProducts = await getFeaturedProducts();
+
   return (
     <>
       <HeroSection />
@@ -18,7 +21,7 @@ export default function HomePage() {
       <FeatureGrid />
       <SeasonalFruitBanner />
       <CategoryScroller />
-      <FeaturedProducts />
+      <FeaturedProducts products={featuredProducts} />
       <SeedingCalendar />
       {/* <YouTubeSection /> */}
       <WhatsAppCTABanner />

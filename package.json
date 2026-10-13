@@ -7,10 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "sanity:dev": "sanity dev --port 3333"
+    "sanity:dev": "sanity dev --port 3333",
+    "migrate": "tsx scripts/migrate-to-sanity.ts"
   },
   "dependencies": {
     "@sanity/client": "^6.29.1",
+    "@sanity/image-url": "^1.1.0",
     "framer-motion": "^11.18.2",
     "next": "^15.5.18",
     "next-intl": "^3.26.5",
@@ -27,6 +29,7 @@
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.6",
     "tailwindcss": "^4.3.0",
+    "tsx": "^4.19.2",
     "typescript": "^5.9.3"
   }
 }
