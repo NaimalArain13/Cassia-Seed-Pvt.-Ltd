@@ -10,4 +10,5 @@ export default defineConfig({
   basePath: '/studio',
   plugins: [structureTool()],
   schema: { types: schemaTypes },
+  scheduledPublishing: { enabled: false },
 });
